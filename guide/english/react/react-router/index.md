@@ -45,3 +45,28 @@ const Nav = () => (
   </div>
 )
 ```
+
+## Defining routes
+In order of the Link components to work, you have to define the Routes. The routes have to be a parent element <Router> and <Switch>. Here are some examples:
+
+```javascript
+<Router>
+  <Switch>
+    <Route path='/' component={Home} />
+    
+    // if you want to pass some props
+    <Route 
+      path='/settings' 
+      render={
+        (props) => <Settings/>
+      }
+    />
+    
+    // if the path changes, e.g. there can be multiple news articles with different IDs
+    <Route
+      path="/news/detail/:ID"
+      component={NewsDetailPage}
+    />
+  </Switch>
+<Router>
+```
